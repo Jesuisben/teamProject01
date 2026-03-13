@@ -1,0 +1,80 @@
+package PoketMonster01;
+import Poketmonster02.Poketmonster02;
+public class Attack02 extends Poketmonster02 {
+   private double attack ;
+
+    public Attack02(String name,String Type, double attack) {
+        super(name,Type);
+        this.attack = attack;
+    }
+}
+
+
+
+
+
+---------------------------------------------------------------
+
+
+
+package PoketMonster01;
+
+import Poketmonster02.Poketmonster02;
+
+
+public class Defense02 extends Poketmonster02{
+    private double health ;
+    private Boolean Alive =true;
+
+    public Defense02(String name,String Type,double health) {
+        super(name,Type);
+        this.health = health;
+    }
+}
+
+
+--------------------------------------------------------------
+
+
+package Poketmonster02;
+
+public class Poketmonster02 {
+    private String name;
+    private String Type;
+
+    public Poketmonster02(String name, String type) {
+        this.name = name;
+        this.Type = type;
+
+
+    }
+    public String getName() {
+        return name;
+
+    }
+
+    public String getType() {
+        return Type;
+    }
+}
+
+
+---------------------------------------------------------------
+
+
+
+package Poketmonster02;
+
+import PoketMonster01.Attack02;
+import PoketMonster01.Defense02;
+
+public class InheTest02 {
+    static void main() {
+        Poketmonster02 Monster01 = new Attack02("파치리스", "전기",100 );
+        Poketmonster02 Monster02 = new Attack02("꼬부기", "물", 100);
+        Poketmonster02 Monster03 = new Defense02("잉어킹","물",100);
+        System.out.println("name : "+Monster01.getName());
+        System.out.println("type : "+Monster01.getType());
+    }
+}
+

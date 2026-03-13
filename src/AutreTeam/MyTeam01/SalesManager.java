@@ -1,4 +1,4 @@
-package AutreTeam.MyTeam;
+package AutreTeam.MyTeam01;
 
 import java.util.Scanner;
 

@@ -1,0 +1,7 @@
+인터페이스 Huntable, Jumpable, SpeedUp,SwimSpeedUp
+
+추상 클래스 , 수퍼 Animal
+
+서브 Turtle / Giraffe / Rabbit
+
+메인 ZooMain

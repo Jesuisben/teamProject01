@@ -1,4 +1,4 @@
-package AutreTeam.MyTeam;
+package AutreTeam.MyTeam01;
 
 abstract class Item implements Report {
     //변수선언
