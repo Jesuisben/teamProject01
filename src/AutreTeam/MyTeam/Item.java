@@ -1,4 +1,4 @@
-package J.C.K_Project;
+package AutreTeam.MyTeam;
 
 abstract class Item implements Report {
     //변수선언

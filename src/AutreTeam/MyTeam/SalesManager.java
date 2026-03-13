@@ -1,4 +1,4 @@
-package J.C.K_Project;
+package AutreTeam.MyTeam;
 
 import java.util.Scanner;
 

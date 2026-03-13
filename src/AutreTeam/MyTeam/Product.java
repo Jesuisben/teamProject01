@@ -1,4 +1,4 @@
-package J.C.K_Project;
+package AutreTeam.MyTeam;
 
 class Product extends Item {
     //고유변수가 없다?.....................
