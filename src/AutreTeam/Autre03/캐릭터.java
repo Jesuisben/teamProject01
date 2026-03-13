@@ -1,4 +1,4 @@
-package AutreTeam.Autro03;
+package AutreTeam.Autre03;
 
 public abstract class 캐릭터{
     private String 성별;

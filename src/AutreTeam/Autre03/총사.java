@@ -1,4 +1,4 @@
-package AutreTeam.Autro03;
+package AutreTeam.Autre03;
 
 public class 총사 extends 캐릭터 implements 스킬사용, 도망치기, 조롱하기 {
     String 스킬명 = "총을 땅야땅야";

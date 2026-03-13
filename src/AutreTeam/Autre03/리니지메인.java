@@ -1,4 +1,4 @@
-package AutreTeam.Autro03;
+package AutreTeam.Autre03;
 
 import java.util.Scanner;
 

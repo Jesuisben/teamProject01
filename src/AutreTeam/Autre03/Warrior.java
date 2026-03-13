@@ -1,4 +1,4 @@
-package AutreTeam.Autro03;
+package AutreTeam.Autre03;
 
 public class Warrior extends 캐릭터 implements 스킬사용, 도망치기, 조롱하기 {
     //기본 스펙 생각하기

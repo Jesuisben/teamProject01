@@ -1,29 +1,38 @@
-package AutreTeam.Autro03;
+package AutreTeam.Autre03;
 
-public class Wizard extends 캐릭터 implements 스킬사용, 도망치기, 조롱하기 {
+public class Burglar extends 캐릭터 implements 스킬사용, 도망치기, 조롱하기 {
     //기본 스펙 생각하기
     // 물약 먹기 구현
     // 스킬명도 생각해두고, 어떻게 할건지
     // 인터페이스 구상이 끝나면 받아와서 메소드 완성하기
-    // gender : "여성"
-    // name : "마법사"
-    // ad : 50
-    // block : 6
-    // hp : 85
-    // mp : 100
+    // gender : "남"
+    // name : "좀도둑"
+    // ad : 40
+    // block : 10
+    // hp : 95
+    // mp : 80
 
     // 물약 갯수
     int mp_potion = 3;
 
     //생성자
-    public Wizard(String 성별, String 캐릭명, double 공격력, double 방어력, double 체력, double 마나양) {
+    public Burglar(String 성별, String 캐릭명, double 공격력, double 방어력, double 체력, double 마나양) {
         super(성별, 캐릭명, 공격력, 방어력, 체력, 마나양);
+    }
+
+    @Override
+    public void 등장멘트출력() {
+        if ("남".equals(super.get성별())) {
+            System.out.println("괴도루팡 뺨치는 대도둑이로소이다.");
+        } else {
+            System.out.println("도망치는데는 넘버원!");
+        }
     }
 
     //기본 공격
     @Override
     public void 공격(캐릭터 캐릭) {
-        System.out.printf("%s님이 %s님을 기본 공격 했습니다.",super.get캐릭명(),캐릭.get캐릭명());
+        System.out.printf("%s님이 %s님을 기본 공격 했습니다.\n",super.get캐릭명(),캐릭.get캐릭명());
         System.out.printf("%s 체력 : %.1f -> %.1f \n",캐릭.get캐릭명(),캐릭.get체력(),캐릭.get체력()-(캐릭.get공격력()-캐릭.get방어력()/2));
         캐릭.set체력(캐릭.get체력()-(캐릭.get공격력()-캐릭.get방어력()/2));
     }
@@ -67,41 +76,31 @@ public class Wizard extends 캐릭터 implements 스킬사용, 도망치기, 조
     @Override
     public int 스킬(캐릭터 캐릭) { //에러 제어를 위해 int로 반환 1이 오류
         //현재 소지한 마나가 필요 마나보다 부족할 때 참으로 리턴하기
-        if(get마나양()<=40){ //현재 마나 비교
+        if(get마나양()<20){ //현재 마나 비교
             System.out.println("소지한 마나가 부족합니다. (현재마나 : "+get마나양()+")");
             return 1;
         }
-        System.out.println(get캐릭명()+" : 파이어볼!");
-        System.out.println(get캐릭명()+"가 파이어볼을 사용했습니다.");
+        System.out.println(get캐릭명()+" : 판타스틱!");
+        System.out.println(get캐릭명()+"가 판타스틱 기술로 상대의 무기를 훔쳤습니다.");
         //현재 체력에서 감소된 체력 보여주기
         //현재 체력 : 캐릭.get체력
         //감소된 체력 : 현재체력 - 1.8*(공격력 - 방어력/2)
         System.out.printf("체력 : %.1f -> %.1f \n",캐릭.get체력(),캐릭.get체력()-(캐릭.get공격력()-캐릭.get방어력()/2)*1.8);
         //set체력으로 실제로 감소도 시켜주기
-        캐릭.set체력(캐릭.get체력()-(캐릭.get공격력()-캐릭.get방어력()/2)*1.8);
+        캐릭.set체력(캐릭.get체력()-(캐릭.get공격력()-캐릭.get방어력()/2)*1.3);
         //현재 마나 40 감소
-        set마나양(get마나양()-40);
+        set마나양(get마나양()-20);
         //오류가 없으니까 0으로 리턴
         return 0;
     }
 
+
     @Override
     public void 조롱(캐릭터 캐릭) {
-        System.out.println(get캐릭명()+" : 에베베벱~~@$#=^오^=");
+        System.out.println(get캐릭명()+" : 우쭈쭈~~@$#=^오^=");
         System.out.printf("상대 체력이 %.1f 내려갔습니다.\n",8.0);
         캐릭.set체력(get체력()-8.0);
         System.out.printf("%s님의 현재 체력 : %.1f\n",캐릭.get캐릭명(),캐릭.get체력());
         System.out.printf("내 마나가 %d 회복됩니다.\n",20);
-
     }
-
-    @Override
-    public void 등장멘트출력() {
-        if ("남".equals(super.get성별())) {
-            System.out.println("음침한 미남 마법사가 등장했습니다!");
-        } else {
-            System.out.println("귀여운 울보 마녀가 등장했습니다!");
-        }
-    }
-
 }
