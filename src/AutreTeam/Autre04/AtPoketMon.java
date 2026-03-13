@@ -1,4 +1,4 @@
-package Project;
+package PoketMonster01;
 
 public class AtPoketMon extends PoketMon {
     double atk; // 공격력 수치
@@ -8,13 +8,13 @@ public class AtPoketMon extends PoketMon {
 
     double exp = 0;
     public void setExp (double exppoint) {
-        System.out.println("원래 경험치 : "+this.exp+", +EXP"+exppoint);
+        System.out.println("원래 경험치 : "+this.exp+"경험치 증가"+exppoint);
 
         this.exp += exppoint;
         if (this.exp >= 100) {
 
             this.level++;
-            System.out.println("레벨업하셨습니다. 현재Lv: "+this.level);
+            System.out.println("레벨업~~~!! 현재레벨"+this.level);
             this.exp=0;
             this.atk += 10;
         }
@@ -40,12 +40,12 @@ public class AtPoketMon extends PoketMon {
     }
 
     public double Atk1() { // 기술 1 사용 메서드
-        System.out.println(super.getName()+ " " + skillname1+"!!!!");
+        System.out.println("기술"+skillname1+"을 사용해서 공격!");
         return this.atk;
     }
 
     public double Atk2() { // 기술 2 사용 메서드
-        System.out.println(super.getName()+" "+skillname1+"!!!!");
+        System.out.println("기술"+skillname1+"을 사용해서 공격!");
         return this.atk*2;
     }
 

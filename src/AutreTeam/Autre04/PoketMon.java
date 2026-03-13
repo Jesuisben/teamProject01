@@ -1,4 +1,6 @@
-package Project;
+package PoketMonster01;
+
+import java.util.Scanner;
 
 /**
  *이 클래스는 주석 규칙을 보여주는 예제 클래스입니다.

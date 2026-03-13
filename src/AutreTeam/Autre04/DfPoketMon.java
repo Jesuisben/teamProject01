@@ -1,4 +1,4 @@
-package Project;
+package PoketMonster01;
 
 public class DfPoketMon extends PoketMon {
     double health; // 수비 포켓몬의 체력.
@@ -33,7 +33,6 @@ public class DfPoketMon extends PoketMon {
             System.out.println(super.getName()+"의 남은 HP는 "+this.health+"입니다.");
         } else {
             System.out.println(super.getName()+"이 쓰러졌습니다.");
-            System.out.println("------------------------------------------------------");
             isAlive = false;
         }
 
