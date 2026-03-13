@@ -105,20 +105,16 @@ public class PoketMonMain {
             }
             if (!myDfs.isAlive()){
                 System.out.println("다음 상대를 이어 하시겠습니까?");
-                System.out.println("!!!!!!!!선택하신 상대와 다른 상대를 선택해주세요!!!!!!!!! : 1) 잠만보 2) 메타몽 3) 마자용");
+                System.out.println("이어하기 >> 1번 ");
                 System.out.println("종료하기 >> 4번");
-
                 int a = scan.nextInt();
-               switch ( a){
-                   case 1:
-                   myDfs = (DfPoketMon) poketMon5;
-                   break;
-                   case 2:
-                   myDfs = (DfPoketMon) poketMon4;
-                   break;
-                   case 3:
+              switch ( a){
+                  case 1: myDfs = (DfPoketMon) poketMon5;
+                   break; case 2:
+                  myDfs = (DfPoketMon) poketMon4;
+                   break; case 3:
                    myDfs = (DfPoketMon) poketMon6;
-                   break;
+                  break;
                    case 4:
                        System.out.println("게임종료");
                        break;
@@ -146,6 +142,9 @@ public class PoketMonMain {
                 //myDfs.isAlive() == false
 
             }
+            myAtk.setExp(myDfs.getExp());
+
+
 
             }//while문 괄호.
 

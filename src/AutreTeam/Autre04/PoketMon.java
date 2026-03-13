@@ -7,7 +7,7 @@ package Project;
  * */
 public class PoketMon {
    private String  name;//이거는~ 이름~
-   private String type;//이거는 물불전기 타입~
+  final private String type;//이거는 물불전기 타입~
 
    public PoketMon(String name, String type) {
       this.name = name;
