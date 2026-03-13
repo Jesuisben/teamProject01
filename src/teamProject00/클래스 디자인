@@ -1,0 +1,230 @@
+# 클래스 생성
+(cafaMain, Drink, Americano, Espresso, MintChoco, Yogurt) 클래스 생성
+
+# 가게이름 작성
+(Drink수퍼클래스)
+// 가게 이름
+// 어디서든 쓰이게 = public
+// 객체 생성 불필요 = static
+// 편집 가능성 X = final
+public static final String CafeName = "Bonjour";
+
+# 상속관계
+(Drink수퍼클래스)와 (Americano서브클래스), (Espresso서브클래스), (MintChoco서브클래스), (Yogurt서브클래스)의 상속관계 설정
+// extends
+
+# 카페이름 및 메뉴 제시 출력
+(cafeMain클래스)
+System.out.println("안녕하세요 " + Drink.CafeName + "입니다.\n\n"+
+                "가게 사정으로 인해 변동사항이 있으니 메뉴 선정에 주의해주세요.\n\n"+
+                "메뉴를 보여드리겠습니다.\n\n");
+
+# 서브클래스들의 공통분모를 수퍼클래스의 맴버 변수에 선언
+(private)
+// 맴버 변수 생성
+private String name;
+private double price;
+
+# 서브클래스들의 특성 선언
+(Americano서브클래스)
+private int shotCount; // 샷 개수 (단위 = 샷)
+private double waterAmount; // 물의 양 (단위 = ml)
+
+(Espresso서브클래스)
+private int shotCount; // 샷 개수 (단위 = 샷)
+private String coffeeOrigin; // 원두 원산지 (단위 = X)
+
+(MintChoco서브클래스)
+private int chocoAmount; // 초코칩 양 (단위 = 스푼)
+private int mintAmount; // 민트 에센스 양 (단위 = 방울)
+
+(Yogurt서브클래스)
+private String yogurtOrigin; // 요거트 원산지 (단위 = X)
+private String milkQuality; // 우유 품질 (상, 중, 하) (단위 = X)
+
+# 수퍼클래스에 서브클래스들의 공통분모를 매개변수로 생성자 생성
+(Drink수퍼클래스)
+// 서브클래스의 공통분모 생성자
+public Drink(String name, double price){
+	this.name = name; // 매개변수를 Drink수퍼클래스의 맴버변수에 재할당
+	this.price = price; // 매개변수를 Drink수퍼클래스의 맴버변수에 재할당
+}
+
+# 서브클래스들에 각자의 특성 + 수퍼클래스의 공통분모를 매개변수로 생성자 생성
+(Americano서브클래스)
+public Americano(String name, double price, int shotCount, double waterAmount) {
+	this.shotCount = shotCount; // 매개변수를 Americano서브클래스의 맴버변수에 재할당
+	this.waterAmount = waterAmount; // 매개변수를 Americano서브클래스의 맴버변수에 재할당
+	super(name, price); // 수퍼클래스의 생성자 호출 (공통분모)
+}
+
+(Espresso서브클래스)
+public Espresso(String name, double price, int shotCount, String coffeeOrigin) {
+	this.shotCount = shotCount; // 매개변수를 Espresso서브클래스의 맴버변수에 재할당
+	this.coffeeOrigin = coffeeOrigin; // 매개변수를 Espresso서브클래스의 맴버변수에 재할당
+	super(name, price); // 수퍼클래스의 생성자 호출 (공통분모)
+}
+
+(MintChoco서브클래스)
+public MintChoco(String name, double price, int chocoAmount, int mintAmount) {
+	this.chocoAmount = chocoAmount; // 매개변수를 MintChoco서브클래스의 맴버변수에 재할당
+	this.mintAmount = mintAmount; // 매개변수를 MintChoco서브클래스의 맴버변수에 재할당
+	super(name, price); // 수퍼클래스의 생성자 호출 (공통분모)
+}
+
+(Yogurt서브클래스)
+public Yogurt(String name, double price, String yogurtOrigin, String milkQuality) {
+	this.yogurtOrigin = yogurtOrigin; // 매개변수를 Yogurt서브클래스의 맴버변수에 재할당
+	this.milkQuality = milkQuality; // 매개변수를 Yogurt서브클래스의 맴버변수에 재할당
+	super(name, price); // 수퍼클래스의 생성자 호출 (공통분모)
+}
+
+# 배열 및 객체 생성
+(cafaMain클래스)
+// 배열 - 초기화 기법
+// 클래스명[] 배열명 = {배열 요소}
+Drink[] Menu = {
+                new Americano("아메리카노", 3900.0, 3, 400.0),
+                new Espresso("에스프레소", 4500.0, 2, "에티오피아"),
+                new MintChoco("민트초코 스무디", 5900.0, 3, 2),
+                new Yogurt("요거트", 6100, "그리스", "상")
+        };
+
+// 향상 for 반복문, 배열요소 출력
+int i = 1;
+for (Drink item : Menu){
+	System.out.println(i + "번 메뉴\n" + item + "\n");
+	i++;
+}
+
+# cafeMain클래스의 for반복문이 정상적으로 돌아가기 위해
+# 오브젝트의 toString메소드 오버라이딩
+- Drink수퍼클래스의 맴버변수를 이용한 문자열 입력 후 리턴
+(Drink수퍼클래스)
+@Override
+public String toString() {
+	String menuFeature = "이름 : " + name + " , 가격 : " + price + "원";
+	return menuFeature;
+}
+
+# 서브클래스들도 각 맴버변수를 Drink수퍼클래스의 toString메소드에 입력하여 오버라이딩
+(Americano서브클래스)
+@Override
+public String toString() {
+	String menuFeature = super.toString() + ", 샷 개수 : " + shotCount + "샷, 물의 양 : " + waterAmount + "ml";
+	return menuFeature ;
+}
+
+(Espresso서브클래스)
+@Override
+public String toString() {
+	String menuFeature = super.toString() + ", 샷 개수 : " + shotCount + "샷, 원두 원산지 : " + coffeeOrigin;
+	return menuFeature ;
+}
+
+(MintChoco서브클래스)
+@Override
+public String toString() {
+	String menuFeature = super.toString() + ", 초코칩 양 : " + chocoAmount + "스푼, 민트 에센스 양 : " + mintAmount +"방울";
+	return menuFeature ;
+}
+
+(Yogurt서브클래스)
+@Override
+public String toString() {
+	String menuFeature = super.toString() + ", 요거트 원산지 : " + yogurtOrigin + ", 우유 품질 : " + milkQuality;
+	return menuFeature ;
+}
+
+# 가게 사정으로 인한 원재료의 품질 및 양 낮추기 (인터페이스 이용)
+- 인터페이스 생성
+(BadAmericano, BadEspresso, BadMintChoco, BadYogurt) 인터페이스 생성
+
+- 서브클래스에 인터페이스 implements하기
+(서브클래스 extends 수퍼클래스 implements 인터페이스)
+
+- 각 인터페이스에 추상 메소드 생성
+// 원재료의 품질 및 양 낮추기 위한 추상 메소드 생성
+(BadAmericano인터페이스)
+void lowQuality(int lowShot, double lowWater);
+
+(BadEspresso인터페이스)
+void lowQuality(int lowShot, String lowOrigin);
+
+(BadMintChoco인터페이스)
+void lowQuality(int lowChoco, int lowMint);
+
+(BadYogurt인터페이스)
+void lowQuality(String lowOrigin, String lowMilk);
+
+- 각 서브클래스에 메소드 오버라이드 생성
+// 원재료의 품질 및 양 낮추기 위한 BadAmericano 인터페이스의 추상 메소드의 오버라이드 생성
+(Americano서브클래스) 
+@Override
+public void lowQuality(int lowShot, double lowWater){
+	System.out.println("변동 사항 : 샷(" + this.shotCount + " -> " + lowShot +
+			"), 물의 양(" + this.waterAmount + " -> " + lowWater + ")\n");
+	this.shotCount = lowShot;
+	this.waterAmount = lowWater;
+}
+
+(Espresso서브클래스)
+@Override
+public void lowQuality(int lowShot, String lowOrigin){
+	System.out.println("변동 사항 : 샷(" + this.shotCount + " -> " + lowShot +
+			"), 원두 원산지(" + this.coffeeOrigin + " -> " + lowOrigin + ")\n");
+	this.shotCount = lowShot;
+	this.coffeeOrigin = lowOrigin;
+}
+
+(MintChoco서브클래스)
+@Override
+public void lowQuality(int lowChoco, int lowMint){
+	System.out.println("변동 사항 : 초코칩 양(" + this.chocoAmount + " -> " + lowChoco +
+			"), 민트 에센스 양(" + this.mintAmount + " -> " + lowMint + ")\n");
+	this.chocoAmount = lowChoco;
+	this.mintAmount = lowMint;
+}
+
+(Yogurt서브클래스)
+@Override
+public void lowQuality(String lowOrigin, String lowMilk){
+	System.out.println("변동 사항 : 요거트 원산지(" + this.yogurtOrigin + " -> " + lowOrigin +
+			"), 우유 품질(" + this.milkQuality + " -> "	 + lowMilk + ")\n");
+	this.yogurtOrigin = lowOrigin;
+	this.milkQuality = lowMilk;
+}
+
+# 변동사항 for 반복문에 추가하여 출력
+- (cafaMain클래스)의 향상된 for 반복문 사이에 추가
+if(item instanceof Americano){
+	((Americano)item).lowQuality(1, 500);
+}else if(item instanceof Espresso){
+	((Espresso)item).lowQuality(1, "중국");
+}else if(item instanceof MintChoco){
+	((MintChoco)item).lowQuality(1, 1);
+}else if(item instanceof Yogurt){
+	((Yogurt)item).lowQuality("중국", "중");
+}
+
+# 메뉴 고르기
+(cafaMain클래스)
+System.out.println("원하시는 메뉴의 숫자를 입력해주세요\n( 1 / 2 / 3 / 4 )\n");
+
+# Scanner 입력함수로 입력 받기
+- Scanner 도구 import (package와 class사이에 추가)
+import java.util.Scanner;
+
+- 입력함수 사용
+Scanner scan = new Scanner(System.in);
+int choice = scan.nextInt();
+
+# 반복문 이용해서 선택한 메뉴 확인 시켜주기
+for (int j = 0; j < Menu.length; j++) {
+	if(choice == j+1){
+		System.out.println("\n" + (j+1) + "번 메뉴를 고르셨습니다\n감사합니다.");
+	}
+}
+
+# 해야할일
+재고량 표시?
