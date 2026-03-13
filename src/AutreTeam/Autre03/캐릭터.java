@@ -1,4 +1,4 @@
-package AutreTeam.Autre03;
+package ch06_abstract_interface.리니지;
 
 public abstract class 캐릭터{
     private String 성별;

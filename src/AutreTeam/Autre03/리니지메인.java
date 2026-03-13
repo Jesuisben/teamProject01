@@ -1,15 +1,15 @@
-package AutreTeam.Autre03;
+package ch06_abstract_interface.리니지;
 
 import java.util.Scanner;
 
 public class 리니지메인 {
     static void main(String[] args) throws InterruptedException {
         캐릭터[] 캐릭 = {
-                new 총사("남", "총사", 60, 50, 1200, 200),
-                new Wizard("여", "마법사", 400, 40, 900, 200),
-                new Cleric("남", "나이팅게일", 200, 90, 500, 200),
-                new Burglar("남", "도둑놈", 200, 90, 500, 200),
-                new Warrior("남", "헬스남", 200, 90, 500, 200),
+                new 총사("남", "총사", 60, 10, 400, 100),
+                new Wizard("여", "마법사", 50, 11, 500, 100),
+                new Cleric("남", "나이팅게일", 57, 13, 500, 100),
+                new Burglar("남", "도둑놈", 54, 9, 470, 100),
+                new Warrior("남", "헬스남", 60, 12, 600, 100),
         };
         Scanner s = new Scanner(System.in);
         System.out.print("첫번째 캐릭터를 선택해주세요(1.총사, 2.마법사, 3.힐러, 4.도둑, 5.전사) ====> ");
@@ -23,28 +23,29 @@ public class 리니지메인 {
         timesleep();
         System.out.println("---------------------------------------------");
         System.out.println();
-        System.out.println();
         선택1캐릭.등장멘트출력();
+        System.out.println();
         선택2캐릭.등장멘트출력();
+        System.out.println();
 
 
-        int result = 0;
+        int win = 0;
         while(true){
             System.out.println("---------------------------------------------");
-            result =  선택(선택1캐릭, 선택2캐릭, s);
-            if(result == 1) {
+            win =  선택(선택1캐릭, 선택2캐릭, s);
+            if(win == 1) {
                 System.out.println("결과 :"+선택1캐릭.get캐릭명()+"이 승리했습니다.");
                 break;
-            }else if(result == 2) {
+            }else if(win == 2) {
                 System.out.println("결과 :"+선택2캐릭.get캐릭명()+"이 승리했습니다.");
                 break;
             }
             System.out.println("---------------------------------------------");
-            result = 선택(선택2캐릭, 선택1캐릭, s);
-            if(result == 1) {
+            win = 선택(선택2캐릭, 선택1캐릭, s);
+            if(win == 1) {
                 System.out.println("결과 :"+선택1캐릭.get캐릭명()+"이 승리했습니다.");
                 break;
-            }else if(result == 2) {
+            }else if(win == 2) {
                 System.out.println("결과 :"+선택2캐릭.get캐릭명()+"이 승리했습니다.");
                 break;
             }

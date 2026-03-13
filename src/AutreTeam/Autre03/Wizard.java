@@ -1,4 +1,4 @@
-package AutreTeam.Autre03;
+package ch06_abstract_interface.리니지;
 
 public class Wizard extends 캐릭터 implements 스킬사용, 도망치기, 조롱하기 {
     //기본 스펙 생각하기
@@ -23,7 +23,7 @@ public class Wizard extends 캐릭터 implements 스킬사용, 도망치기, 조
     //기본 공격
     @Override
     public void 공격(캐릭터 캐릭) {
-        System.out.printf("%s님이 %s님을 기본 공격 했습니다.",super.get캐릭명(),캐릭.get캐릭명());
+        System.out.printf("%s님이 %s님을 기본 공격 했습니다.\n",super.get캐릭명(),캐릭.get캐릭명());
         System.out.printf("%s 체력 : %.1f -> %.1f \n",캐릭.get캐릭명(),캐릭.get체력(),캐릭.get체력()-(캐릭.get공격력()-캐릭.get방어력()/2));
         캐릭.set체력(캐릭.get체력()-(캐릭.get공격력()-캐릭.get방어력()/2));
     }
@@ -41,6 +41,7 @@ public class Wizard extends 캐릭터 implements 스킬사용, 도망치기, 조
         System.out.println(super.get캐릭명() + "님이 체력회복 포션을 먹었습니다.");
         //체력 10 회복해주기
         set체력(get체력() + 10);
+        System.out.println("현재 체력 : "+get체력());
         //멤버변수 mp_potion 하나 줄이기
         mp_potion--;
 
@@ -52,6 +53,7 @@ public class Wizard extends 캐릭터 implements 스킬사용, 도망치기, 조
         //0 -> 도망 실패, 1 -> 도망 성공
         if(Math.random()<0.5){ //랜덤으로 0~1까지의 모든 실수를 받아옴. 50퍼센트 확률
             System.out.println("도망에 성공했습니다!");
+            System.exit(0);
             return 1;
         }
         else{
@@ -59,6 +61,7 @@ public class Wizard extends 캐릭터 implements 스킬사용, 도망치기, 조
             System.out.println("의기소침 해져 공격력 3을 잃습니다.");
             //공격력 3 영구적으로 잃기
             set공격력(get공격력()-3);
+            System.out.println("현재 공격력 : "+get공격력());
             return 0;
         }
     }
@@ -92,14 +95,17 @@ public class Wizard extends 캐릭터 implements 스킬사용, 도망치기, 조
         캐릭.set체력(get체력()-8.0);
         System.out.printf("%s님의 현재 체력 : %.1f\n",캐릭.get캐릭명(),캐릭.get체력());
         System.out.printf("내 마나가 %d 회복됩니다.\n",20);
+        System.out.println("현재 마나 : "+get마나양());
 
     }
 
     @Override
     public void 등장멘트출력() {
         if ("남".equals(super.get성별())) {
+            System.out.println("시스템 : 마법사가 선택되었습니다.");
             System.out.println("음침한 미남 마법사가 등장했습니다!");
         } else {
+            System.out.println("시스템 : 마법사가 선택되었습니다.");
             System.out.println("귀여운 울보 마녀가 등장했습니다!");
         }
     }
