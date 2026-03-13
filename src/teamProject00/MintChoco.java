@@ -1,4 +1,4 @@
-package ch06_abstract_interface.teamProject01;
+package teamProject00;
 
 public class MintChoco extends Drink implements BadMintChoco{
     private int chocoAmount; // 초코칩 양 (단위 = 스푼)

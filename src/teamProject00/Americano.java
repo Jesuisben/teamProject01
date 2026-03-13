@@ -1,4 +1,4 @@
-package ch06_abstract_interface.teamProject01;
+package teamProject00;
 
 public class Americano extends Drink implements BadAmericano{
     private int shotCount; // 샷 개수 (단위 = 샷)

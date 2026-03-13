@@ -1,4 +1,4 @@
-package SalesManager;
+package GeminiSalesManager;
 
 import java.util.Scanner;
 

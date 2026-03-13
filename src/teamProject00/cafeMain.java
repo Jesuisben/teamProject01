@@ -1,4 +1,4 @@
-package ch06_abstract_interface.teamProject01;
+package teamProject00;
 // Scanner 도구 import (package와 class사이에 추가)
 import java.util.Scanner;
 
@@ -48,7 +48,7 @@ public class cafeMain {
         // 반복문 이용해서 선택한 메뉴 확인 시켜주기
         for (int j = 0; j < Menu.length; j++) {
             if(choice == j+1){
-                System.out.println("\n" + (j+1) + "번 메뉴를 고르셨습니다\n감사합니다.");
+                System.out.println("\n" + (j+1) + "번 메뉴를 고르셨습니다\n\n감사합니다.");
             }
         }
 

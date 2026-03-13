@@ -1,4 +1,4 @@
-package ch06_abstract_interface.teamProject01;
+package teamProject00;
 
 public class Espresso extends Drink implements BadEspresso{
     private int shotCount; // 샷 개수 (단위 = 샷)

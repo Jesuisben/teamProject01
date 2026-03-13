@@ -1,4 +1,4 @@
-package ch06_abstract_interface.teamProject01;
+package teamProject00;
 
 public class Drink {
     // 가게 이름

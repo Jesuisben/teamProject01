@@ -1,4 +1,4 @@
-package ch06_abstract_interface.teamProject01;
+package teamProject00;
 
 public class Yogurt extends Drink implements BadYogurt{
     private String yogurtOrigin; // 요거트 원산지 (단위 = X)
